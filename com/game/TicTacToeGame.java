@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class TicTacToeGame {
 
 	static char[] board = new char[10];
-	char turn;
+	
 
 	// initializing board
 	private void createBoard() {
@@ -28,7 +28,20 @@ public class TicTacToeGame {
 		char player = checkChoice(userchoice);
 		char compChoice = (player == 'X') ? 'O' :'X';
 		System.out.println("user choice "+player+" , computer choice "+compChoice);
+		tobj.printBoard();
+		
 
+	}
+
+	private void printBoard() {
+		// TODO Auto-generated method stub
+		System.out.println("___|___|___");
+		System.out.println(board[1]+" | "+board[2]+" | "+board[3]);
+		System.out.println("-----------");
+		System.out.println(board[4]+" | "+board[5]+" | "+board[6]);
+		System.out.println("-----------");
+		System.out.println(board[7]+" | "+board[8]+" | "+board[9]);
+		
 	}
 
 	private static char checkChoice(Scanner userchoice) {
