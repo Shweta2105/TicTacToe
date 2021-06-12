@@ -1,5 +1,6 @@
 package com.game;
 
+import java.util.Scanner;
 
 /* @shweta........
  * building tic tac toe game
@@ -7,31 +8,33 @@ package com.game;
 
 public class TicTacToeGame {
 
-	static char[] board = new char[9];
-	private static void createBoard() {
-		for(int i=0; i<9;i++) {
+	static char[] board = new char[10];
+	char turn;
+
+	// initializing board
+	private void createBoard() {
+		for (int i = 1; i < 10; i++) {
 			System.out.print(board[i]);
 		}
 	}
 
-	public static void printBoard() {  //printing board
-		System.out.println("---|---|---");
-		System.out.println("|  " + board[0] + " | " + board[1] + " | " + board[2] + "|");
-		System.out.println("|----------|");
-		System.out.println("|  " + board[3] + " | " + board[4] + " | " + board[5] + "|");
-		System.out.println("|----------|");
-		System.out.println("|  " + board[6] + " | " + board[7] + " | " + board[8] + "|");
-		System.out.println("---|---|---");
-
-	}
-
 	public static void main(String[] args) {
 		System.out.println("<<<<Welcome to Tic Tac Toe game >>>>");
-		createBoard();
-		System.out.println();
-		printBoard();
+		TicTacToeGame tobj = new TicTacToeGame();
+		Scanner userchoice = new Scanner(System.in);
+
+		tobj.createBoard(); // calling the method
+		// choosing player X or O
+		char player = checkChoice(userchoice);
+		char compChoice = (player == 'X') ? 'O' :'X';
+		System.out.println("user choice "+player+" , computer choice "+compChoice);
+
 	}
 
-	
+	private static char checkChoice(Scanner userchoice) {
+		System.out.println("Choose your choice :");
+
+		return userchoice.next().toUpperCase().charAt(0);
+	}
 
 }
